@@ -43,7 +43,7 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/test-*.xml'
-    testRunTitle: 'Publish test results for Python $(python.version)'
+    testRunTitle: 'Publish test1 results for Python $(python.version)'
 
 - task: PublishCodeCoverageResults@1
   inputs:
