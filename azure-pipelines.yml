@@ -33,14 +33,14 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip3 install pytest pytest-azurepipelines
-    pytest --doctest-modules --junitxml=junit/test-results.xml
+    pip3 install pytest pytest-azurepipelines pytest-cov
+    pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
   displayName: 'pytest'
 
-#- script: |
-#    python -m pip install flake8
-#    flake8 .
-#  displayName: 'Run lint tests'
+- script: |
+    python3 -m pip install flake8
+    flake8 .
+  displayName: 'Run lint tests'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
