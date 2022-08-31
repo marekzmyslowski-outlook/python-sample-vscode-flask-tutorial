@@ -41,6 +41,7 @@ steps:
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
+    testResultsFormat: 'JUnit'
     testResultsFiles: '**/test-*.xml'
     testRunTitle: 'Publish test results for Python $(python.version)'
 
@@ -48,4 +49,3 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
-
